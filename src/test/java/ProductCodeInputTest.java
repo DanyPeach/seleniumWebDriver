@@ -6,12 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-import java.time.Duration;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TestCodeInput {
+public class ProductCodeInputTest {
     private static WebDriver driver = new ChromeDriver();
 
     @BeforeTest
@@ -21,7 +19,7 @@ public class TestCodeInput {
     }
 
     @org.testng.annotations.Test
-    public void testCodeOfProduct() throws InterruptedException {
+    public void productCodeInputTest() throws InterruptedException {
         WebElement searchButton = driver.findElement(By.xpath("//*[@id=\"home\"]/div[1]/header/nav[1]/ul/li[3]/button"));
 
 //        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(4000));
@@ -44,9 +42,8 @@ public class TestCodeInput {
         Matcher matcher = pattern.matcher(mydata);
 
         String res = "";
-        if (matcher.find()) {
-           res = matcher.group();
-        }
+
+        res = matcher.find() ? matcher.group() : null;
 
         Assert.assertEquals(res, codeOfProductStr);
     }
