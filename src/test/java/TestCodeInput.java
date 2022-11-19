@@ -43,9 +43,12 @@ public class TestCodeInput {
         Pattern pattern = Pattern.compile("[A-Z0-9]{14}");
         Matcher matcher = pattern.matcher(mydata);
 
+        String res = "";
         if (matcher.find()) {
-            Assert.assertEquals(matcher.group(), codeOfProductStr);
+           res = matcher.group();
         }
+
+        Assert.assertEquals(res, codeOfProductStr);
     }
 
     @AfterTest
