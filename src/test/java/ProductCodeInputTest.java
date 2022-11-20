@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -26,10 +27,12 @@ public class ProductCodeInputTest {
         WebElement searchButton = driver.findElement(By.xpath("//*[@id=\"home\"]/div[1]/header/nav[1]/ul/li[3]/button"));
         searchButton.click();
         Thread.sleep(2000);
+
+
         WebElement inputLine = driver.findElement(By.id("textSearch"));
-        System.out.println(inputLine.getText());
-        Thread.sleep(2000);
         inputLine.sendKeys(codeOfProductStr);
+
+
         Thread.sleep(2000);
         WebElement product = driver.findElement(By.xpath("//*[@id=\"panelSearch\"]/div[2]/div[3]/form/div[3]/div/ul/li/a"));
         product.click();
@@ -46,7 +49,7 @@ public class ProductCodeInputTest {
 
     @AfterTest
     public void exit(){
-        driver.quit();
+//        driver.quit();
     }
 
 }
