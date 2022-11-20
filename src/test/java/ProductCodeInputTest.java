@@ -25,6 +25,7 @@ public class ProductCodeInputTest {
 
         WebElement searchButton = driver.findElement(By.xpath("//*[@id=\"home\"]/div[1]/header/nav[1]/ul/li[3]/button"));
         searchButton.click();
+        Thread.sleep(2000);
         WebElement inputLine = driver.findElement(By.id("textSearch"));
         System.out.println(inputLine.getText());
         Thread.sleep(2000);
@@ -47,5 +48,6 @@ public class ProductCodeInputTest {
     public void exit(){
         driver.quit();
     }
+
 }
 
